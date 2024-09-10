@@ -1,0 +1,3 @@
+Fill this folder with images to be used
+
+Delete this txt file when there is at least one picture in this folder

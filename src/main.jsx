@@ -12,7 +12,7 @@ import CreatePage from "./pages/Create";
 import NewEnvironmentPage from "./pages/NewEnvironment";
 import ErrorPage from "./pages/Error";
 import HomePage from "./pages/Home";
-import LoginPage from "./pages/LoginPage";
+import LoginPage from "./pages/Login";
 import NewCampaignPage from "./pages/NewCampaign";
 
 // I think it might be better to change the /pages/Main.jsx into /pages/Login.jsx

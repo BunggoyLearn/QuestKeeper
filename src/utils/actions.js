@@ -8,5 +8,8 @@ export const STOP_CAR = "STOP_CAR";
 // Examples:
 // Add Character/Enemy/NPC
 // Remove Character/Enemy/NPC
-// Toggle Character pages
-//
+// Toggle Character pages (e.g., Switch from players to enemies)
+// Update character stats (e.g., +/- HP, MP, CHA, WIS)
+// Add character notes
+// Add environment
+// Toggle environment? (Switch between already made environments?)

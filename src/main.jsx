@@ -14,9 +14,8 @@ import ErrorPage from "./pages/Error";
 import HomePage from "./pages/Home";
 import MainPage from "./pages/MainPage";
 
-// TODO: Create the related files in a 'pages' folder
-
-// TODO: Include all the routes
+// I think it might be better to change the /pages/Main.jsx into /pages/Login.jsx
+// since we already have a /src/main.jsx file for the pages to populate in
 
 const router = createBrowserRouter([
   {

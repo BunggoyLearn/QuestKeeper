@@ -1,12 +1,22 @@
 const { Schema, model } = require('mongoose');
 
 const characterSchema = new Schema({
-    characterText: {
+    thoughtText: {
         type: String,
         required: 'You need to leave a thought!',
         minlength: 1,
         maxlength: 280,
         trim: true,
+    },
+    thoughtAuthor: {
+        type: String,
+        required: true,
+        trim: true,
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now,
+        get: (timestamp) => dateFormat(timestamp),
     },
     comments: [
         {
@@ -24,7 +34,3 @@ const characterSchema = new Schema({
         },
     ],
 });
-
-const Character = model('Character', characterSchema);
-
-module.exports = Character;

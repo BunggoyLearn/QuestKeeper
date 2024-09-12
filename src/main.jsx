@@ -1,54 +1,64 @@
 import ReactDOM from "react-dom/client";
+// Bringing in the required imports from 'react-router-dom' to set up application routing behavior
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import App from "./App.jsx";
 import "./index.css";
-// import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-// TODO: Create the related files in a 'pages' folder
+// Bringing in the pages the router will use to conditionally show the appropriate views
+import App from "./App";
+import CampaignPage from "./pages/Campaign";
+import CreatePage from "./pages/Create";
+import NewEnvironmentPage from "./pages/NewEnvironment";
+import ErrorPage from "./pages/Error";
+import HomePage from "./pages/Home";
+import LoginPage from "./pages/Login";
+import NewCampaignPage from "./pages/NewCampaign";
 
-// import App from './App.jsx';
-// import Home from './pages/Home';
-// import Detail from './pages/Detail';
-// import NoMatch from './pages/NoMatch';
-// import Login from './pages/Login';
-// import Signup from './pages/Signup';
-// import Success from './pages/Success';
-// import OrderHistory from './pages/OrderHistory';
+// I think it might be better to change the /pages/Main.jsx into /pages/Login.jsx
+// since we already have a /src/main.jsx file for the pages to populate in
 
-// TODO: Include all the routes
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <Campaign />,
+      },
+      {
+        path: "/login",
+        element: <LoginPage />,
+      },
+      {
+        // campaign id
+        path: "/home/:id",
+        element: <HomePage />,
+      },
+      {
+        path: "/environment",
+        element: <NewEnvironmentPage />,
+      },
+      {
+        path: "/create",
+        element: <CreatePage />,
+      },
+      {
+        // User id
+        path: "/campaign/:id",
+        element: <CampaignPage />,
+      },
+      {
+        path: "/campaign/",
+        element: <NewCampaignPage />,
+      },
+    ],
+  },
+]);
 
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <App />,
-//     error: <NoMatch />,
-//     children: [
-//       {
-//         index: true,
-//         element: <Home />,
-//       },
-//       {
-//         path: "/login",
-//         element: <Login />,
-//       },
-//       {
-//         path: "/signup",
-//         element: <Signup />,
-//       },
-//       {
-//         path: "/success",
-//         element: <Success />,
-//       },
-//       {
-//         path: "/orderHistory",
-//         element: <OrderHistory />,
-//       },
-//       {
-//         path: "/products/:id",
-//         element: <Detail />,
-//       },
-//     ],
-//   },
-// ]);
-
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-// Include: <RouterProvider router={router} /> instead of <App />
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <RouterProvider router={router} />
+);
+// instead of <App />

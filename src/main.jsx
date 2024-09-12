@@ -9,10 +9,11 @@ import "./index.css";
 import App from "./App";
 import CampaignPage from "./pages/Campaign";
 import CreatePage from "./pages/Create";
-import EnvironmentPage from "./pages/Environment";
+import NewEnvironmentPage from "./pages/NewEnvironment";
 import ErrorPage from "./pages/Error";
 import HomePage from "./pages/Home";
-import MainPage from "./pages/MainPage";
+import LoginPage from "./pages/LoginPage";
+import NewCampaignPage from "./pages/NewCampaign";
 
 // I think it might be better to change the /pages/Main.jsx into /pages/Login.jsx
 // since we already have a /src/main.jsx file for the pages to populate in
@@ -28,8 +29,8 @@ const router = createBrowserRouter([
         element: <Campaign />,
       },
       {
-        path: "/main",
-        element: <MainPage />,
+        path: "/login",
+        element: <LoginPage />,
       },
       {
         // campaign id
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/environment",
-        element: <EnvironmentPage />,
+        element: <NewEnvironmentPage />,
       },
       {
         path: "/create",
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
         // User id
         path: "/campaign/:id",
         element: <CampaignPage />,
+      },
+      {
+        path: "/campaign/",
+        element: <NewCampaignPage />,
       },
     ],
   },

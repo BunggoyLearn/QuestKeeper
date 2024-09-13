@@ -1,5 +1,3 @@
-const School = require('./School');
-const Class = require('./Class');
-const Professor = require('./Professor');
+const Character = require('./Character.js');
 
-module.exports = { School, Class, Professor };
+module.exports = Character;

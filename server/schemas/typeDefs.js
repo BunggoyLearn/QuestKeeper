@@ -1,4 +1,14 @@
 const typeDefs = `
+  type SaveData {
+    name: String
+    world: [World]
+  }
+
+  type World {
+    environments: [Environment]
+    inhabitants: [Character]
+  }
+
   type Character {
     _id: ID
     name: String!
@@ -63,6 +73,8 @@ const typeDefs = `
   type Query {
     characters: [Character]
     environments: [Environment]
+    world: [World]
+    savedata: [SaveData]
   }
 `;
 

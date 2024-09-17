@@ -1,6 +1,6 @@
 // Incomplete
 // User creates the environment that the player with interact in/with (A simpler version of the Create.jsx?)
-import { useQuery } from "@apollo/client";
+// import { useQuery } from "@apollo/client";
 import EnvironmentForm from "../components/EnvironmentForm";
 
 const NewEnvironment = () => {

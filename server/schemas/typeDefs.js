@@ -56,11 +56,12 @@ const typeDefs = `
 
   type Environment {
     _id: ID
-    name: String
-    terrain: String
-    weather: String
+    name: String!
+    terrain: String!
+    weather: String!
     environmentFactor: String
     town: [Town]
+    quests: [String]
     NPCs: [Character]
   }
 

@@ -46,12 +46,18 @@ const typeDefs = `
 
   type Environment {
     _id: ID
-    name: String
-    terrain: String
-    weather: String
+    name: String!
+    terrain: String!
+    weather: String!
     environmentFactor: String
-    town: String
+    town: [Town]
+    quests: [String]
     NPCs: [Character]
+  }
+
+  type Town {
+    _id: ID
+    name: String
   }
 
   type Query {

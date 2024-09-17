@@ -16,14 +16,11 @@ const environmentSchema = new Schema(
     },
     environmentFactor: {
       type: String,
-      required: true,
     },
     town: [{
-      townID: Number,
-      id: false,
-      Name: String,
+      name: String,
     }],
-    quest: [String],
+    quests: [String],
     npcs: [{ type: Schema.Types.ObjectId, ref: 'Character' }],
   }
 );

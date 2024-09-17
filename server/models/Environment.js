@@ -19,9 +19,7 @@ const environmentSchema = new Schema(
       required: true,
     },
     town: [{
-      townID: Number,
-      id: false,
-      Name: String,
+      name: String,
     }],
     quest: [String],
     npcs: [{ type: Schema.Types.ObjectId, ref: 'Character' }],

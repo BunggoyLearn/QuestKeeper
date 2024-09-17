@@ -1,9 +1,9 @@
 // Incomplete
 // form for creating/editing an environment
 
-import { userReducer, useState } from "react";
-import { useMutation } from "@apollo/client";
-import reducer from "../utils/reducers";
+//import { userReducer, useState } from "react";
+//import { useMutation } from "@apollo/client";
+//import reducer from "../utils/reducers";
 
 // Example from CarComponent.jsx
 // const initialState = useCar();
@@ -13,6 +13,8 @@ import reducer from "../utils/reducers";
 // const [newCarModel, setNewCarModel] = useState("");
 // const [newCarYear, setNewCarYear] = useState("");
 // e.g., Instead of {preset}, {newCarMake}
+
+const preset = "variyabul";
 
 const EnvironmentForm = () => {
   return (

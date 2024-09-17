@@ -25,12 +25,24 @@ const characterSchema = new Schema({
         type: Number,
         required: true,
     },
+    isNPC: {
+        type: Boolean,
+        required: true,
+    },
+    environment: {
+        type: String,
+        default: null,
+    },
+    npcAmount: {
+        type: Number,
+    },
     status: [{
         blinded: {
             Boolean,
         },
         charmed: {
             Boolean,
+
         },
         deafened: {
             Boolean,

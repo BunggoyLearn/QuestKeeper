@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!--CSS-->
+    <style>
+      .increment {
+        position: relative;
+        top: -4px;
+        right: 24px;
+        z-index: 1;
+        display: inline-flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        width: 16px;
+        height: 18px;
+      }
+
+      .increment b {
+        display: inline-block;
+        width: 100%;
+        height: 30px;
+      }
+    </style>
+
+    <title>Testing</title>
+  </head>
+
+  <body>
+    <div>
+      <form>
+        <div>
+          <input id="num" type="number" min="0" step="1" />
+          <label for="num" class="increment">
+            <b class="more"></b>
+            <b class="less"></b>
+          </label>
+        </div>
+      </form>
+    </div>
+  </body>
+
+  <script>
+    document.querySelector(".increment").onclick = moreOrLess;
+
+    function moreOrLess(x) {
+      const clicked = x.target;
+      const num = this.previousElementSibling;
+
+      if (clicked.matches(".more")) {
+        num.stepUp(1);
+      }
+
+      if (clicked.matches(".less")) {
+        num.stepDown(1);
+      }
+    }
+  </script>
+</html>

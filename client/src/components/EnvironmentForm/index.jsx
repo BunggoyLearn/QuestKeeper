@@ -37,6 +37,24 @@ const EnvironmentForm = ({ previous }) => {
   //   }
   // };
 
+  function addInput() {
+    const div = document.getElementById("more-names");
+    const input = document.createElement("input");
+    input.type = "text";
+    input.name = "env-towns";
+    div.appendChild(input);
+  }
+
+  const form = document.querySelector("form");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const townNames = Array.from(
+      document.querySelectorAll('input[name="env-towns"]')
+    ).map((input) => input.value);
+
+    console.log(townNames);
+  });
+
   return (
     <div>
       <form>
@@ -88,6 +106,10 @@ const EnvironmentForm = ({ previous }) => {
             placeholder="Town name(s)?"
             defaultValue={preset[4]}
           ></input>
+          <button type="button" onClick={addInput()}>
+            Add another town
+          </button>
+          <div id="more-names"></div>
         </div>
 
         <div>

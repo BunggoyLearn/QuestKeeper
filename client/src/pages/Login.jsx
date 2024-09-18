@@ -1,6 +1,6 @@
 // First page the user encounters if they are not logged in; here the user can either sign up or login
 
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 const Login = () => {
@@ -12,9 +12,8 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(endpoint, { email, password });
+      const response = await axios.post(e, { email, password });
       console.log(response.data); // Handle response
-      
     } catch (err) {
       setError(`${isLogin ? "Login" : "Signup"} failed. Please try again.`);
     }

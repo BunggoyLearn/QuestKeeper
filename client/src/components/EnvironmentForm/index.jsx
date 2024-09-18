@@ -14,9 +14,29 @@
 // const [newCarYear, setNewCarYear] = useState("");
 // e.g., Instead of {preset}, {newCarMake}
 
-const preset = "variyabul";
+let preset = ["", "", "", "", "", "", "", ""];
 
-const EnvironmentForm = () => {
+const EnvironmentForm = ({ previous }) => {
+  if (previous) {
+    preset = previous;
+  }
+
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+
+  //   const response = await fetch("/api/createEnvironment", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ title, description }),
+  //   });
+
+  //   if (response.ok) {
+  //     window.location.href = "/home";
+  //   }
+  // };
+
   return (
     <div>
       <form>
@@ -25,8 +45,8 @@ const EnvironmentForm = () => {
           <input
             type="text"
             name="env-name"
-            placeholder="BresselSpruts"
-            defaultValue={preset}
+            placeholder="What's it called?"
+            defaultValue={preset[0]}
           ></input>
         </div>
 
@@ -35,8 +55,8 @@ const EnvironmentForm = () => {
           <input
             type="text"
             name="env-terrain"
-            placeholder="Think MineCraft-flat"
-            defaultValue={preset}
+            placeholder="Is is MC-flat?"
+            defaultValue={preset[1]}
           ></input>
         </div>
 
@@ -45,8 +65,8 @@ const EnvironmentForm = () => {
           <input
             type="text"
             name="env-weather"
-            placeholder="Kinda rainy"
-            defaultValue={preset}
+            placeholder="Is it rainy?"
+            defaultValue={preset[2]}
           ></input>
         </div>
 
@@ -55,8 +75,8 @@ const EnvironmentForm = () => {
           <input
             type="text"
             name="env-factors"
-            placeholder="You might slip"
-            defaultValue={preset}
+            placeholder="Could you slip?"
+            defaultValue={preset[3]}
           ></input>
         </div>
 
@@ -65,8 +85,8 @@ const EnvironmentForm = () => {
           <input
             type="text"
             name="env-towns"
-            placeholder="St. Felville"
-            defaultValue={preset}
+            placeholder="Town name(s)?"
+            defaultValue={preset[4]}
           ></input>
         </div>
 
@@ -75,8 +95,8 @@ const EnvironmentForm = () => {
           <input
             type="text"
             name="env-quests"
-            placeholder="Dig up dirt"
-            defaultValue={preset}
+            placeholder="Dig up dirt?"
+            defaultValue={preset[5]}
           ></input>
         </div>
 
@@ -86,7 +106,7 @@ const EnvironmentForm = () => {
             type="text"
             name="env-npcs"
             placeholder="Steve ehehehehe"
-            defaultValue={preset}
+            defaultValue={preset[6]}
           ></input>
         </div>
 
@@ -96,7 +116,7 @@ const EnvironmentForm = () => {
             type="image"
             name="env-image"
             placeholder="uhh uuuhhhhhh"
-            defaultValue={preset}
+            defaultValue={preset[7]}
           ></input>
         </div>
 

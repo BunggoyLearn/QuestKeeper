@@ -5,20 +5,20 @@
 // Import the `useQuery()` hook from Apollo Client
 // import { useQuery } from "@apollo/client";
 
-document.querySelector(".increment").onclick = moreOrLess;
+// document.querySelector(".increment").onclick = moreOrLess;
 
-function moreOrLess(x) {
-  const clicked = x.target;
-  const num = this.previousElementSibling;
+// function moreOrLess(x) {
+//   const clicked = x.target;
+//   const num = this.previousElementSibling;
 
-  if (clicked.matches(".more")) {
-    num.stepUp(1);
-  }
+//   if (clicked.matches(".more")) {
+//     num.stepUp(1);
+//   }
 
-  if (clicked.matches(".less")) {
-    num.stepDown(1);
-  }
-}
+//   if (clicked.matches(".less")) {
+//     num.stepDown(1);
+//   }
+// }
 
 const Create = () => {
   const veriyabul = "hi";
@@ -41,46 +41,28 @@ const Create = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="char-hp" className="increment">
-            Health:
-            <b className="more"></b>
-            <b className="less"></b>
-          </label>
+          <label htmlFor="char-hp">Health:</label>
           <input
             id="char-hp"
             type="number"
-            min="0"
-            step="1"
             placeholder="Enter current HP"
           ></input>
         </div>
 
         <div className="form-group">
-          <label htmlFor="char-mp" className="increment">
-            Mana:
-            <b className="more"></b>
-            <b className="less"></b>
-          </label>
+          <label htmlFor="char-mp">Mana:</label>
           <input
             id="char-mp"
             type="number"
-            min="0"
-            step="1"
             placeholder="Enter current MP"
           ></input>
         </div>
 
         <div className="form-group">
-          <label htmlFor="char-gp" className="increment">
-            Gold:
-            <b className="more"></b>
-            <b className="less"></b>
-          </label>
+          <label htmlFor="char-gp">Gold:</label>
           <input
             id="char-gp"
             type="number"
-            min="0"
-            step="1"
             placeholder="Enter current gold"
           ></input>
         </div>

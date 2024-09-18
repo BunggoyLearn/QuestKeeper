@@ -55,7 +55,7 @@ const EnvironmentForm = ({ previous }) => {
           <input
             type="text"
             name="env-terrain"
-            placeholder="Is is flat?"
+            placeholder="Is is MC-flat?"
             defaultValue={preset[1]}
           ></input>
         </div>

@@ -1,0 +1,29 @@
+[
+    {
+        "name": "Alvalon",
+        "terrain": "Plains",
+        "weather": "temperate",
+        "environmentFactor": "none",
+        "town": [{"name": "The Reach"}, {"name": "Applesdale"}],
+        "quests": ["Clear out the rats in the tavern's basement", "Retrieve the Jet Amulet for Mary"],
+        "npcs": []
+    },
+    {
+        "name": "The Forest of Myria",
+        "terrain": "Forest",
+        "weather": "cold, rainy",
+        "environmentFactor": "Rainfall: Fire damage reduced by 20%",
+        "town": [{"name":"Myrian Keep"}],
+        "quests": ["Slay the goblin encampment outside the town's gate", "Find the 'Herb of life' for James"],
+        "npcs": []
+    },
+    {
+        "name": "The Mines",
+        "terrain": "Cave",
+        "weather": "Hot, arid",
+        "environmentFactor": "Trapped Gasses: All explosions have double radius",
+        "town": [],
+        "quests": ["Bring back gold sample for Edward", "Activate the Amethyst Golem"],
+        "npcs": []
+    }
+]

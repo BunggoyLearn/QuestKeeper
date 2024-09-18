@@ -1,7 +1,7 @@
 // User chooses which campaign they wish to use (i.e., which save file)
 // First page the user encounters if they're logged in...?
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 const Campaign = () => {
@@ -15,7 +15,6 @@ const Campaign = () => {
 
       if (result.campaign) {
         setCampaignData(result.campaign);
-        s;
       } else {
         history.push("/NewCampaign");
       }

@@ -3,16 +3,15 @@
 // import { useQuery } from "@apollo/client";
 import EnvironmentForm from "../components/EnvironmentForm";
 
+const newFile = true; // = useQuery();
+
 const NewEnvironment = () => {
   return (
     <div>
       <div>
-        <h2>New Environment</h2>
+        <h2>Environment(s)</h2>
       </div>
-      {/* One for creating an environment */}
-      <EnvironmentForm />
-      {/* One for editing an environment (i.e., the input areas are pre-filled) */}
-      <EnvironmentForm />
+      {newFile ? <EnvironmentForm /> : <EnvironmentForm previous={[]} />}
     </div>
   );
 };

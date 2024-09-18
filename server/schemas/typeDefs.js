@@ -1,14 +1,5 @@
 const typeDefs = `
-  type SaveData {
-    name: String
-    world: [World]
-  }
-
-  type World {
-    environments: [Environment]
-    inhabitants: [Character]
-  }
-
+  #outputs  
   type Character {
     _id: ID
     name: String!
@@ -50,8 +41,8 @@ const typeDefs = `
   }
 
   type heldItem {
-    item: String
-    description: String
+    item: String!
+    description: String!
   }
 
   type Environment {
@@ -75,6 +66,96 @@ const typeDefs = `
     environments: [Environment]
     world: [World]
     savedata: [SaveData]
+  }
+
+  type World {
+    _id: ID!
+    environments: [Environment]
+    heroes: [Character]
+  }
+
+  type SaveData {
+    _id: ID!
+    name: String!
+    world: [World]
+  }
+
+  type Mutation {
+    addSave(input: SaveDataInput! ) : SaveData
+  }
+
+#inputs
+
+  input CharacterInput {
+    _id: ID
+    name: String!
+    healthPoints: Int!
+    maxHealthPoints: Int!
+    manaPoints: Int!
+    maxManaPoints: Int!
+    goldPieces: Int!
+    isNPC: Boolean
+    environment: String
+    npcAmount: Int
+    status: [StatusInput]
+    alive: Boolean
+    holding: [holdingInput]
+    quirks: [String]
+  }
+
+  input StatusInput {
+    blinded: Boolean
+    charmed: Boolean
+    deafened: Boolean
+    exhaustion: Boolean
+    frightened: Boolean
+    grappled: Boolean
+    incapacitated: Boolean
+    invisible: Boolean
+    paralyzed: Boolean
+    petrified: Boolean
+    poisoned: Boolean
+    prone: Boolean
+    restrained: Boolean
+    stunned: Boolean
+    unconcious: Boolean
+  }
+
+  input holdingInput {
+    heldItem: [heldItemInput]
+  }
+
+  input heldItemInput {
+    item: String!
+    description: String!
+  }
+
+  input EnvironmentInput {
+    _id: ID
+    name: String!
+    terrain: String!
+    weather: String!
+    environmentFactor: String
+    town: [TownInput]
+    quests: [String]
+    NPCs: [CharacterInput]
+  }
+
+  input TownInput {
+    _id: ID
+    name: String
+  }
+
+  input WorldInput {
+    _id: ID!
+    environments: [EnvironmentInput]
+    heroes: [CharacterInput]
+  }
+
+  input SaveDataInput {
+    _id: ID!
+    name: String!
+    world: [WorldInput]
   }
 `;
 

@@ -70,7 +70,6 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Create from "./pages/Create";
 import Campaign from "./pages/Campaign";
-import CarProvider from "./utils/CarContext";
 import "./App.css";
 
 export default function App() {
@@ -78,28 +77,20 @@ export default function App() {
     document.title = "QuestKeeper";
   }, []);
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
-    <CarProvider>
+    <div>
       <Header />
-
       <main>
         <Routes>
-          <Route
-            path="/"
-            element={
-              isLoggedIn ? <Navigate to="/home" /> : <Navigate to="/login" />
-            }
-          />
-
           <Route
             path="/login"
             element={<Login setIsLoggedIn={setIsLoggedIn} />}
           />
 
           <Route
-            path="/home"
+            path="/"
             element={isLoggedIn ? <Home /> : <Navigate to="/login" />}
           />
 
@@ -116,6 +107,6 @@ export default function App() {
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       </main>
-    </CarProvider>
+    </div>
   );
 }

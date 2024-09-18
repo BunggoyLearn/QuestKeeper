@@ -8,6 +8,12 @@ const resolvers = {
         environments: async () => {
             return await Environment.findByID({}).populate('Character');
         },
+        saveData: async () => {
+            return await SaveData.findByID({}).populate('Environment', 'Character');
+        },
+        world: async () => {
+            return await World.find({});
+        },
     },
     Mutation: {
         addSave: async (parent, { name, World }) => {

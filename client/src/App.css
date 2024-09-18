@@ -1,3 +1,18 @@
+:root {
+  --first-color: #3e3e3e;
+  --second-color: #f4722b;
+  --third-color: #f6e7c1;
+  --fourth-color: #b3a78c;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--fourth-color);
+  color: var(--first-color);
+}
+
 .app {
   text-align: center;
 }
@@ -19,13 +34,14 @@ table {
 }
 
 th {
-  background: lightgreen;
+  background: var(--second-color);
+  color: var(--third-color);
   padding: 10px;
 }
 
 th,
 td {
-  border: 1px solid grey;
+  border: 1px solid var(--fourth-color);
 }
 
 .add-student {
@@ -36,4 +52,104 @@ td {
 .add-student input,
 .add-student select {
   height: 40px;
+}
+
+/*===================== Login styles========================= */
+.login-container {
+  max-width: 400px;
+  margin: 60px auto 20px;
+  padding: 20px;
+  border: 1px solid var(--fourth-color);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: var(--third-color);
+}
+
+h2 {
+  text-align: center;
+  color: var(--first-color);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+div {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px;
+  background-color: var(--second-color);
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px;
+}
+
+button:hover {
+  background-color: var(--first-color);
+}
+
+p {
+  text-align: center;
+  color: #666;
+}
+
+/* ================Header styles =======================*/
+header {
+  background: var(--first-color);
+  color: var(--third-color);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--fourth-color);
+}
+
+.logo a {
+  color: var(--third-color);
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+nav {
+  display: flex;
+}
+
+nav ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: var(--third-color);
+  text-decoration: none;
+  font-size: 1.1em;
+}
+
+nav ul li a:hover {
+  color: var(--second-color);
 }

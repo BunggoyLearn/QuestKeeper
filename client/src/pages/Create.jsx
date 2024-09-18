@@ -119,36 +119,36 @@
 
 // export default Create;
 
-import { useEffect } from "react";
+//import { useEffect } from "react";
 
 const Create = () => {
-  useEffect(() => {
-    // Add event listeners after the component is rendered
-    const incrementElements = document.querySelectorAll(".increment");
-    incrementElements.forEach((element) => {
-      element.onclick = moreOrLess;
-    });
+  // useEffect(() => {
+  //   // Add event listeners after the component is rendered
+  //   const incrementElements = document.querySelectorAll(".increment");
+  //   incrementElements.forEach((element) => {
+  //     element.onclick = moreOrLess;
+  //   });
 
-    return () => {
-      // Clean up event listeners when the component unmounts
-      incrementElements.forEach((element) => {
-        element.onclick = null;
-      });
-    };
-  }, []);
+  //   return () => {
+  //     // Clean up event listeners when the component unmounts
+  //     incrementElements.forEach((element) => {
+  //       element.onclick = null;
+  //     });
+  //   };
+  // }, []);
 
-  function moreOrLess(event) {
-    const clicked = event.target;
-    const num = clicked.closest(".form-group").querySelector("input");
+  // function moreOrLess(event) {
+  //   const clicked = event.target;
+  //   const num = clicked.closest(".form-group").querySelector("input");
 
-    if (clicked.matches(".more")) {
-      num.stepUp(1);
-    }
+  //   if (clicked.matches(".more")) {
+  //     num.stepUp(1);
+  //   }
 
-    if (clicked.matches(".less")) {
-      num.stepDown(1);
-    }
-  }
+  //   if (clicked.matches(".less")) {
+  //     num.stepDown(1);
+  //   }
+  // }
 
   return (
     <div>
@@ -167,52 +167,31 @@ const Create = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="char-hp" className="increment">
-            Health:
-            <button type="button" className="more">
-              +
-            </button>
-            <button type="button" className="less">
-              -
-            </button>
-          </label>
+          <label htmlFor="char-hp">Health:</label>
           <input
             id="char-hp"
             type="number"
+            className="form-input"
             placeholder="Enter current HP"
           ></input>
         </div>
 
         <div className="form-group">
-          <label htmlFor="char-mp" className="increment">
-            Mana:
-            <button type="button" className="more">
-              +
-            </button>
-            <button type="button" className="less">
-              -
-            </button>
-          </label>
+          <label htmlFor="char-mp">Mana:</label>
           <input
             id="char-mp"
             type="number"
+            className="form-input"
             placeholder="Enter current MP"
           ></input>
         </div>
 
         <div className="form-group">
-          <label htmlFor="char-gp" className="increment">
-            Gold:
-            <button type="button" className="more">
-              +
-            </button>
-            <button type="button" className="less">
-              -
-            </button>
-          </label>
+          <label htmlFor="char-gp">Gold:</label>
           <input
             id="char-gp"
             type="number"
+            className="form-input"
             placeholder="Enter current gold"
           ></input>
         </div>
@@ -222,6 +201,7 @@ const Create = () => {
           <input
             id="char-img"
             type="file"
+            className="form-input"
             accept="image/png, image/jpeg"
           ></input>
         </div>
@@ -231,6 +211,7 @@ const Create = () => {
           <input
             id="char-holding"
             type="text"
+            className="form-input"
             placeholder="What do they have/know?"
           ></input>
         </div>
@@ -240,6 +221,7 @@ const Create = () => {
           <input
             id="char-quirks"
             type="text"
+            className="form-input"
             placeholder="What are their quirks?"
           ></input>
         </div>

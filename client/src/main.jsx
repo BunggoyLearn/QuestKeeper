@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         // campaign id
-        path: "/home/:id",
+        path: "/:id",
         element: <HomePage />,
       },
       {

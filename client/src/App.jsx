@@ -77,7 +77,7 @@ export default function App() {
     document.title = "QuestKeeper";
   }, []);
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
     <div>
@@ -85,27 +85,12 @@ export default function App() {
       <main>
         <Routes>
           <Route
+            path="/login"
+            element={<Login setIsLoggedIn={setIsLoggedIn} />}
+          />
+
+          <Route
             path="/"
-            element={
-              isLoggedIn ? <Navigate to="/home" /> : <Navigate to="/login" />
-            }
-          />
-
-          <Route
-            path="/login"
-            element={<Login setIsLoggedIn={setIsLoggedIn} />}
-          />
-          <Route
-            path="/login"
-            element={<Login setIsLoggedIn={setIsLoggedIn} />}
-          />
-
-          <Route
-            path="/home"
-            element={isLoggedIn ? <Home /> : <Navigate to="/login" />}
-          />
-          <Route
-            path="/home"
             element={isLoggedIn ? <Home /> : <Navigate to="/login" />}
           />
 
@@ -113,15 +98,7 @@ export default function App() {
             path="/create"
             element={isLoggedIn ? <Create /> : <Navigate to="/login" />}
           />
-          <Route
-            path="/create"
-            element={isLoggedIn ? <Create /> : <Navigate to="/login" />}
-          />
 
-          <Route
-            path="/campaign"
-            element={isLoggedIn ? <Campaign /> : <Navigate to="/login" />}
-          />
           <Route
             path="/campaign"
             element={isLoggedIn ? <Campaign /> : <Navigate to="/login" />}

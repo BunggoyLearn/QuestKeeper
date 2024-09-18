@@ -63,9 +63,8 @@
 //   );
 // }
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom"; // Import routing components
-import CarComponent from "./components/CarComponent";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -81,17 +80,8 @@ export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
-    <Router>
+    <div>
       <Header />
-
-      <main>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              isLoggedIn ? <Navigate to="/home" /> : <Navigate to="/login" />
-            }
-          />
       <main>
         <Routes>
           <Route
@@ -140,6 +130,6 @@ export default function App() {
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       </main>
-    </Router>
+    </div>
   );
 }

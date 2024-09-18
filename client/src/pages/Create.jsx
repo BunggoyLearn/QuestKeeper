@@ -5,12 +5,12 @@
 // // Import the `useQuery()` hook from Apollo Client
 // // import { useQuery } from "@apollo/client";
 
-
+//
 // document.querySelector(".increment").onclick = moreOrLess;
 
-// function moreOrLess(x) {
-//   const clicked = x.target;
-//   const num = this.previousElementSibling;
+// // function moreOrLess(x) {
+// //   const clicked = x.target;
+// //   const num = this.previousElementSibling;
 
 //   if (clicked.matches(".more")) {
 //     num.stepUp(1);
@@ -179,11 +179,8 @@ const Create = () => {
           <input
             id="char-hp"
             type="number"
-            min="0"
-            step="1"
             placeholder="Enter current HP"
           ></input>
-
         </div>
 
         <div className="form-group">
@@ -199,8 +196,6 @@ const Create = () => {
           <input
             id="char-mp"
             type="number"
-            min="0"
-            step="1"
             placeholder="Enter current MP"
           ></input>
         </div>
@@ -218,11 +213,8 @@ const Create = () => {
           <input
             id="char-gp"
             type="number"
-            min="0"
-            step="1"
             placeholder="Enter current gold"
           ></input>
-
         </div>
 
         <div className="form-group">
@@ -241,7 +233,6 @@ const Create = () => {
             type="text"
             placeholder="What do they have/know?"
           ></input>
-
         </div>
 
         <div className="form-group">
@@ -251,7 +242,6 @@ const Create = () => {
             type="text"
             placeholder="What are their quirks?"
           ></input>
-
         </div>
       </form>
     </div>

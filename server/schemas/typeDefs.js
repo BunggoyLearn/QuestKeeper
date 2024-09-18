@@ -61,13 +61,6 @@ const typeDefs = `
     name: String
   }
 
-  type Query {
-    characters: [Character]
-    environments: [Environment]
-    world: [World]
-    savedata: [SaveData]
-  }
-
   type World {
     _id: ID!
     environments: [Environment]
@@ -78,6 +71,15 @@ const typeDefs = `
     _id: ID!
     name: String!
     world: [World]
+  }
+
+  type Query {
+    characters: [Character]
+    environments: [Environment]
+    world: [World]
+    saveData: [SaveData]
+    character(id: ID!) : Character
+    environment(id: ID!) : Environment
   }
 
   type Mutation {

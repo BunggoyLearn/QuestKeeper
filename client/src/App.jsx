@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
 } from "react-router-dom"; // Import routing components
-import CarComponent from "./components/CarComponent";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Login from "./pages/Login";

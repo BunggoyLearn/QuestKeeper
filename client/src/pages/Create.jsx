@@ -5,6 +5,7 @@
 // // Import the `useQuery()` hook from Apollo Client
 // // import { useQuery } from "@apollo/client";
 
+
 // document.querySelector(".increment").onclick = moreOrLess;
 
 // function moreOrLess(x) {
@@ -162,7 +163,7 @@ const Create = () => {
             type="text"
             className="form-input"
             placeholder="Enter character name"
-          />
+          ></input>
         </div>
 
         <div className="form-group">
@@ -181,7 +182,8 @@ const Create = () => {
             min="0"
             step="1"
             placeholder="Enter current HP"
-          />
+          ></input>
+
         </div>
 
         <div className="form-group">
@@ -200,7 +202,7 @@ const Create = () => {
             min="0"
             step="1"
             placeholder="Enter current MP"
-          />
+          ></input>
         </div>
 
         <div className="form-group">
@@ -219,12 +221,17 @@ const Create = () => {
             min="0"
             step="1"
             placeholder="Enter current gold"
-          />
+          ></input>
+
         </div>
 
         <div className="form-group">
           <label htmlFor="char-img">Image: </label>
-          <input id="char-img" type="file" accept="image/png, image/jpeg" />
+          <input
+            id="char-img"
+            type="file"
+            accept="image/png, image/jpeg"
+          ></input>
         </div>
 
         <div className="form-group">
@@ -233,7 +240,8 @@ const Create = () => {
             id="char-holding"
             type="text"
             placeholder="What do they have/know?"
-          />
+          ></input>
+
         </div>
 
         <div className="form-group">
@@ -242,7 +250,8 @@ const Create = () => {
             id="char-quirks"
             type="text"
             placeholder="What are their quirks?"
-          />
+          ></input>
+
         </div>
       </form>
     </div>

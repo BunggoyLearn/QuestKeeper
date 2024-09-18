@@ -29,13 +29,89 @@
 
   <body>
     <div>
+      <div>
+        <h1>New Character:</h1>
+      </div>
       <form>
-        <div>
-          <input id="num" type="number" min="0" step="1" />
-          <label for="num" class="increment">
-            <b class="more"></b>
-            <b class="less"></b>
+        <div className="form-group">
+          <label htmlFor="char-gp" className="increment">
+            Gold:
+            <button type="button" className="more">
+              +
+            </button>
+            <button type="button" className="less">
+              -
+            </button>
           </label>
+          <input
+            id="char-gp"
+            type="number"
+            placeholder="Enter current gold"
+          ></input>
+        </div>
+        
+        <div className="form-group">
+          <label htmlFor="char-name">Name: </label>
+          <input
+            id="char-name"
+            type="text"
+            className="form-input"
+            placeholder="Enter character name"
+          ></input>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="char-hp">Health:</label>
+          <input
+            id="char-hp"
+            type="number"
+            placeholder="Enter current HP"
+          ></input>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="char-mp">Mana:</label>
+          <input
+            id="char-mp"
+            type="number"
+            placeholder="Enter current MP"
+          ></input>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="char-gp">Gold:</label>
+          <input
+            id="char-gp"
+            type="number"
+            placeholder="Enter current gold"
+          ></input>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="char-img">Image: </label>
+          <input
+            id="char-img"
+            type="file"
+            accept="image/png, image/jpeg"
+          ></input>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="char-holding">Holding: </label>
+          <input
+            id="char-holding"
+            type="text"
+            placeholder="What do they have/know?"
+          ></input>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="char-quirks">Quirks: </label>
+          <input
+            id="char-quirks"
+            type="text"
+            placeholder="What are their quirks?"
+          ></input>
         </div>
       </form>
     </div>

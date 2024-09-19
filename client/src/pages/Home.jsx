@@ -82,7 +82,9 @@
 // }
 
 // export default Home;
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useQuery } from "@apollo/client";
+import { QUERY_HEROES, QUERY_ENVIRONMENTS } from "../utils/queries";
 import axios from "axios";
 
 const Home = ({ username, isLoggedIn }) => {

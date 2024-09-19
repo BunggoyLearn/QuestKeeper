@@ -1,4 +1,3 @@
-
 // // import React, { useEffect, useState } from "react";
 // // import {
 // //   BrowserRouter as Router,
@@ -139,6 +138,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Create from "./pages/Create";
 import Campaign from "./pages/Campaign";
+import NewEnvironment from "./pages/NewEnvironment";
 import "./App.css";
 
 export default function App() {
@@ -172,7 +172,7 @@ export default function App() {
             path="/campaign"
             element={isLoggedIn ? <Campaign /> : <Navigate to="/login" />}
           />
-
+          <Route path="/new-environment" element={<NewEnvironment />} />
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       </main>

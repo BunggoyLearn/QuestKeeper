@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 import { Routes, Route, Navigate } from "react-router-dom"; // Import routing components
 import Header from "./components/Header";
@@ -8,6 +9,11 @@ import Create from "./pages/Create";
 import Campaign from "./pages/Campaign";
 import "./App.css";
 
+const client = new ApolloClient({
+  uri: "graphql",
+  cache: new InMemoryCache(),
+});
+
 export default function App() {
   useEffect(() => {
     document.title = "QuestKeeper";
@@ -16,34 +22,36 @@ export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
-    <div>
-      <Header />
-      <main>
-        <Routes>
-          <Route
-            path="/login"
-            element={<Login setIsLoggedIn={setIsLoggedIn} />}
-          />
+    <ApolloProvider client={client}>
+      <div>
+        <Header />
+        <main>
+          <Routes>
+            <Route
+              path="/login"
+              element={<Login setIsLoggedIn={setIsLoggedIn} />}
+            />
 
-          <Route
-            path="/"
-            element={isLoggedIn ? <Home /> : <Navigate to="/login" />}
-          />
+            <Route
+              path="/"
+              element={isLoggedIn ? <Home /> : <Navigate to="/login" />}
+            />
 
-          <Route
-            path="/create"
-            element={isLoggedIn ? <Create /> : <Navigate to="/login" />}
-          />
+            <Route
+              path="/create"
+              element={isLoggedIn ? <Create /> : <Navigate to="/login" />}
+            />
 
-          <Route
-            path="/campaign"
-            element={isLoggedIn ? <Campaign /> : <Navigate to="/login" />}
-          />
+            <Route
+              path="/campaign"
+              element={isLoggedIn ? <Campaign /> : <Navigate to="/login" />}
+            />
 
-          <Route path="*" element={<Navigate to="/login" />} />
-        </Routes>
-      </main>
-    </div>
+            <Route path="*" element={<Navigate to="/login" />} />
+          </Routes>
+        </main>
+      </div>
+    </ApolloProvider>
   );
 }
 

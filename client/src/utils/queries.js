@@ -13,30 +13,6 @@ query Characters {
     isNPC
     environment
     npcAmount
-    status {
-      blinded
-      charmed
-      deafened
-      exhaustion
-      frightened
-      grappled
-      incapacitated
-      invisible
-      paralyzed
-      petrified
-      poisoned
-      prone
-      restrained
-      stunned
-      unconcious
-    }
-    alive
-    holding {
-      heldItem {
-        item
-        description
-      }
-    }
     quirks
   }
 }

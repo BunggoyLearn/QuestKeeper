@@ -6,7 +6,6 @@ const NewEnvironment = () => {
 
   return (
     <div className="new-environment-container">
-      <h2>Environment(s)</h2>
       {newFile ? <EnvironmentForm /> : <EnvironmentForm previous={[]} />}
     </div>
   );

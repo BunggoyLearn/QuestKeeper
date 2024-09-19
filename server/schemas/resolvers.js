@@ -6,10 +6,13 @@ const resolvers = {
             return await Character.find({});
         },
         environments: async () => {
-            return await Environment.findByID({}).populate('Character');
+            return await Environment.find({})
         },
         saveData: async () => {
-            return await SaveData.findByID({}).populate('environments', 'heroes');
+            return await SaveData.find({})
+        },
+        saveDataSingle: async (parent, args) => {
+            return await SaveData.findByID(args.id).populate('environments', 'heroes');
         },
         world: async () => {
             return await World.find({});
@@ -27,7 +30,7 @@ const resolvers = {
         },
     },
     Mutation: {
-        addSave: async (parent, { name, World }) => {
+        /*addSave: async (parent, { name, World }) => {
             const createdSaveName = SaveData.create({ name });
             const createdWorld = World.map(wrld => {
                 const createdEnvironments = Environment.map(env => {
@@ -61,7 +64,49 @@ const resolvers = {
                 }
             });
             return createdSaveName;
+        },*/
+        // ALL OF THESE SMALL UNS ARE FRONT END SET IN ORDER
+        // Save first the bottom up
+        addSaveSmall: async (parent, { name, worldId }) => {
+            console.log(worldId);
+            let currentSave = await SaveData.create({ name });
+            return await SaveData.findOneAndUpdate(
+                { _id: currentSave._id },
+                { $addToSet: { world: worldId } },
+                { new: true }
+            );
         },
+        //Front end does this last
+        addWorldSmall: async (parent, { environmentId, heroesId }) => {
+            let currentworld = await World.create({});
+            return await World.findOneAndUpdate(
+                { _id: currentworld._id },
+                { $addToSet: { enviroments: environmentId, heroes: heroesId } },
+                { new: true }
+            );
+        },
+        addEnvironmentSmall: async (parent, args) => {
+            let currentEnvironment = await Environment.create({ ...args });
+            return await Environment.findOneAndUpdate(
+                { _id: currentEnvironment._id },
+                { $addToSet: { NPCs: args.characterId, } },
+                { new: true }
+            );
+        },
+        addCharacter: async (parent, { name, healthPoints, maxHealthPoints, manaPoints, maxManaPoints, goldPieces, isNPC, environment, npcAmount, status, alive, holding, quirks }) => {
+            return await Character.create({ name, healthPoints, maxHealthPoints, manaPoints, maxManaPoints, goldPieces, isNPC, environment, npcAmount, status, alive, holding, quirks })
+        },
+        /*
+        Create Characters
+        Create Environment
+        Create World
+        Create-SaveData
+        */
+
+        /*addCharacter: async (parent, { name, healthPoints, maxHealthPoints, manaPoints, maxManaPoints, goldPieces, isNPC, environment, npcAmount, status, alive, holding, quirks }) => {
+            return await Character.create({ name, healthPoints, maxHealthPoints, manaPoints, maxManaPoints, goldPieces, isNPC, environment, npcAmount, status, alive, holding, quirks })
+        }*/
+
         /*addWorld: async (parent, { environments, inhabitants }) => {
             const newWorld = await World.create({ environments, inhabitants });
             const environment = await Environment.create({

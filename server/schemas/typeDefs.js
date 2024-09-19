@@ -78,12 +78,18 @@ const typeDefs = `
     environments: [Environment]
     world: [World]
     saveData: [SaveData]
+    saveDataSingle(id: ID!) : SaveData
     character(id: ID!) : Character
     environment(id: ID!) : Environment
   }
 
   type Mutation {
     addSave(input: SaveDataInput! ) : SaveData
+    addSaveSmall(name: String!, worldId: ID!) : SaveData
+    addWorldSmall(environmentId: ID!, heroesId: ID!) : World
+    addEnvironmentSmall(name: String!, terrain: String!, weather: String!, environmentFactor: String, town: [TownInput], quests: [String], npcs: [CharacterInput] ) : Environment
+    addCharacter(name: String!, healthPoints: Int!, maxHealthPoints: Int!, manaPoints: Int!, maxManaPoints: Int!, goldPieces: Int!, isNPC: Boolean!, environment: String!, npcAmount: Int, status: [StatusInput], alive: Boolean, holding: [HoldingInput], quirks: [String]) : Character
+    #addCharacter( name: String!, healthPoints: Int!, maxHealthPoints: Int!, manaPoints: Int!, maxManaPoints: Int!, goldPieces: Int!, isNPC: Boolean!, environment: String!, npcAmount: Int, status: [StatusInput], alive: Boolean, holding: [HoldingInput], quirks: [String]) : Character
   }
 
 #inputs
@@ -101,7 +107,7 @@ const typeDefs = `
     npcAmount: Int
     status: [StatusInput]
     alive: Boolean
-    holding: [holdingInput]
+    holding: [HoldingInput]
     quirks: [String]
   }
 
@@ -123,7 +129,7 @@ const typeDefs = `
     unconcious: Boolean
   }
 
-  input holdingInput {
+  input HoldingInput {
     heldItem: [heldItemInput]
   }
 

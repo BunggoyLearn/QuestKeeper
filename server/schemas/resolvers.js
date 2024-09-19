@@ -9,10 +9,21 @@ const resolvers = {
             return await Environment.findByID({}).populate('Character');
         },
         saveData: async () => {
-            return await SaveData.findByID({}).populate('Environment', 'Character');
+            return await SaveData.findByID({}).populate('environments', 'heroes');
         },
         world: async () => {
             return await World.find({});
+        },
+        character: async (parent, args) => {
+            // Use the parameter to find the matching class in the collection
+            return await Character.findById(args.id);
+        },
+        environment: async (parent, args) => {
+            // Use the parameter to find the matching class in the collection
+            return await Environment.findById(args.id).populate({
+                path: 'Character',
+                match: { isNPC: { $ne: false } },
+            })
         },
     },
     Mutation: {

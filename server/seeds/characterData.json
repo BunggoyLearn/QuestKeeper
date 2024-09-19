@@ -1,0 +1,49 @@
+[
+    {
+        "name": "Mary",
+        "healthPoints": 50,
+        "maxHealthPoints": 50,
+        "manaPoints": 0,
+        "maxManaPoints": 0,
+        "goldPieces": 15,
+        "isNPC": true,
+        "environment": "Alvalon",
+        "npcAmount": 1,
+        "status": [],
+        "alive": true,
+        "holding": [{"heldItem": [{ "item": "Mary's Ring", "description": "A simple band made of copper worn by a wedded peasant" }]}],
+        "quirks": ["A simple woman with no knowledge of the outside world"]
+    },
+    {
+        "name": "James",
+        "healthPoints": 50,
+        "maxHealthPoints": 50,
+        "manaPoints": 10,
+        "maxManaPoints": 10,
+        "goldPieces": 35,
+        "isNPC": true,
+        "environment": "The Forest of Myria",
+        "npcAmount": 1,
+        "status": [],
+        "alive": true,
+        "holding":[{"heldItem": [{ "item": "Staff of Fireballs", "description": "A wooden branch cut from a not nearly gnarled enough tree" }]}],
+        "quirks": ["A floaty novice wizard lost in the woods"]
+    },
+    {
+        "name": "Gumm",
+        "healthPoints": 100,
+        "maxHealthPoints": 100,
+        "manaPoints": 50,
+        "maxManaPoints": 50,
+        "goldPieces": 378,
+        "isNPC": true,
+        "environment": "Bogs of Gummreach",
+        "npcAmount": 1,
+        "status": [],
+        "alive": true,
+        "holding":[{
+            "heldItem": [{"item": "Pot of Horrific Stew", "description": "Heals 15 HP, you don't want to think about the ghastly things that make up the soup base" },
+            {"item": "Rod of Blasting", "description": "A hollowed iron tube secured to a sanded piece of wood, when filled with gunpoweder this fires small balls of iron"}]}],
+        "quirks": ["A filthy rich nasty Hobgoblin who will throw away his thinly heeded morals for a quick score"]
+    }
+]

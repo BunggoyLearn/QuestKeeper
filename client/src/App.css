@@ -10,7 +10,8 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: var(--fourth-color);
+  background-image: url(../public/images/IMG_0043.PNG);
+  background-size: cover;
   color: var(--first-color);
 }
 
@@ -123,7 +124,12 @@ header {
   align-items: center;
   border-bottom: 2px solid var(--fourth-color);
 }
-
+/* Logo styling */
+.logo img {
+  width: auto;
+  height: 60px;
+  object-fit: contain;
+}
 .logo a {
   color: var(--third-color);
   text-decoration: none;

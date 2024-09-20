@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const EnvironmentForm = ({ previous = [] }) => {
   const [name, setName] = useState(previous[0] || "");
@@ -6,10 +6,11 @@ const EnvironmentForm = ({ previous = [] }) => {
   const [weather, setWeather] = useState(previous[2] || "");
   const [factors, setFactors] = useState(previous[3] || "");
   const [towns, setTowns] = useState(previous[4] ? [previous[4]] : [""]);
-  const [quests, setQuests] = useState(previous[5] || "");
-  const [npcs, setNpcs] = useState(previous[6] || "");
+  const [quests, setQuests] = useState(previous[5] ? [previous[5]] : [""]);
+  const [npcs, setNpcs] = useState(previous[6] ? [previous[6]] : [""]);
   const [image, setImage] = useState(previous[7] || "");
 
+  // Town inputs
   const handleTownChange = (index, value) => {
     const updatedTowns = [...towns];
     updatedTowns[index] = value;
@@ -18,6 +19,28 @@ const EnvironmentForm = ({ previous = [] }) => {
 
   const handleAddTown = () => {
     setTowns([...towns, ""]);
+  };
+
+  // Quest inputs
+  const handleQuestChange = (index, value) => {
+    const updatedQuests = [...quests];
+    updatedQuests[index] = value;
+    setQuests(updatedQuests);
+  };
+
+  const handleAddQuest = () => {
+    setQuests([...quests, ""]);
+  };
+
+  // Npc inputs
+  const handleNpcChange = (index, value) => {
+    const updatedNpcs = [...npcs];
+    updatedNpcs[index] = value;
+    setNpcs(updatedNpcs);
+  };
+
+  const handleAddNpc = () => {
+    setNpcs([...npcs, ""]);
   };
 
   const handleSubmit = async (event) => {
@@ -110,22 +133,36 @@ const EnvironmentForm = ({ previous = [] }) => {
 
         <div>
           <label>Quest(s): </label>
-          <input
-            type="text"
-            value={quests}
-            onChange={(e) => setQuests(e.target.value)}
-            placeholder="Any quests?"
-          />
+          {quests.map((quest, index) => (
+            <div key={index}>
+              <input
+                type="text"
+                value={quest}
+                onChange={(e) => handleQuestChange(index, e.target.value)}
+                placeholder="Any quests?"
+              />
+            </div>
+          ))}
+          <button type="button" onClick={handleAddQuest}>
+            Add another quest
+          </button>
         </div>
 
         <div>
           <label>NPC(s): </label>
-          <input
-            type="text"
-            value={npcs}
-            onChange={(e) => setNpcs(e.target.value)}
-            placeholder="Any NPCs?"
-          />
+          {npcs.map((npc, index) => (
+            <div key={index}>
+              <input
+                type="text"
+                value={npc}
+                onChange={(e) => handleNpcChange(index, e.target.value)}
+                placeholder="Any NPCs?"
+              />
+            </div>
+          ))}
+          <button type="button" onClick={handleAddNpc}>
+            Add another quest
+          </button>
         </div>
 
         <div>

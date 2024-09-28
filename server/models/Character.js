@@ -25,10 +25,6 @@ const characterSchema = new Schema({
         type: Number,
         required: true,
     },
-    isNPC: {
-        type: Boolean,
-        required: true,
-    },
     environment: {
         type: String,
         default: null,

@@ -96,13 +96,6 @@ const Home = () => {
 
   return (
     <>
-      <h4>Welcome, {isLoggedIn ? username : "visitor"}!</h4>
-      <p>
-        To your new favorite DM tool, QuestKeeper! QuestKeeper is here to help
-        you keep the campaign clean, fun, and easy for beginner DMs or
-        experienced DMs.
-      </p>
-
       <section className="overview-section">
         <h2>Your Heroes</h2>
         {loading ? (

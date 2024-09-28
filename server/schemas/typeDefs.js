@@ -8,14 +8,12 @@ const typeDefs = `
     manaPoints: Int!
     maxManaPoints: Int!
     goldPieces: Int!
-    isNPC: Boolean
     environment: String
     npcAmount: Int
     status: [Status]
     alive: Boolean
     holding: [holding]
     quirks: [String]
-
   }
 
   type Status {
@@ -53,7 +51,7 @@ const typeDefs = `
     environmentFactor: String
     town: [Town]
     quests: [String]
-    NPCs: [Character]
+    npcs: [Character]
   }
 
   type Town {
@@ -81,14 +79,19 @@ const typeDefs = `
     savedata: [SaveData]!
   }
 
+  type Auth {
+    token: ID!
+    user: User
+  }
+
   type Query {
     characters: [Character]
     environments: [Environment]
     world: [World]
     saveData: [SaveData]
     users: [User]
-    saveDataSingle(id: ID!) : SaveData
     user(username: String!): User
+    saveDataSingle(id: ID!) : SaveData
     character(id: ID!) : Character
     environment(id: ID!) : Environment
   }
@@ -96,11 +99,12 @@ const typeDefs = `
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    appendUsertoSave(email: String!, SaveId: ID!) : User
     addSave(input: SaveDataInput! ) : SaveData
     addSaveSmall(name: String!, worldId: ID!) : SaveData
     addWorldSmall(environmentId: ID!, heroesId: ID!) : World
     addEnvironmentSmall(name: String!, terrain: String!, weather: String!, environmentFactor: String, town: [TownInput], quests: [String], npcs: [CharacterInput] ) : Environment
-    addCharacter(name: String!, healthPoints: Int!, maxHealthPoints: Int!, manaPoints: Int!, maxManaPoints: Int!, goldPieces: Int!, isNPC: Boolean!, environment: String!, npcAmount: Int, status: [StatusInput], alive: Boolean, holding: [HoldingInput], quirks: [String]) : Character
+    addCharacter(name: String!, healthPoints: Int!, maxHealthPoints: Int!, manaPoints: Int!, maxManaPoints: Int!, goldPieces: Int!, environment: String, npcAmount: Int, status: [StatusInput], alive: Boolean, holding: [HoldingInput], quirks: [String]) : Character
   }
 
 #inputs
@@ -113,7 +117,6 @@ const typeDefs = `
     manaPoints: Int!
     maxManaPoints: Int!
     goldPieces: Int!
-    isNPC: Boolean
     environment: String
     npcAmount: Int
     status: [StatusInput]

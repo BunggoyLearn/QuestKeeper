@@ -52,5 +52,27 @@ export const ADD_WORLD = gql`
 `;
 
 export const ADD_SAVEDATA = gql`
+mutation AddSaveSmall($name: String!, $worldId: ID!) {
+  addSaveSmall(name: $name, worldId: $worldId) {
+    _id
+    name
+    world {
+      _id
+    }
+  }
+}
+`;
 
+export const ADD_USER = gql`
+mutation Mutation($username: String!, $email: String!, $password: String!) {
+  addUser(username: $username, email: $email, password: $password) {
+    token
+    user {
+      _id
+      username
+      email
+      password
+    }
+  }
+}
 `;

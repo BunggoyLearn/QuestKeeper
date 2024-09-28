@@ -1,4 +1,5 @@
 const { User, SaveData, World, Environment, Character } = require('../models/index.js');
+const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
     Query: {
@@ -14,6 +15,12 @@ const resolvers = {
         saveDataSingle: async (parent, args) => {
             return await SaveData.findByID(args.id).populate('environments', 'heroes');
         },
+        users: async () => {
+            return await User.find({})
+        },
+        user: async (parent, { username }) => {
+            return User.findOne({ username }).populate('savedata');
+        },
         world: async () => {
             return await World.find({});
         },
@@ -23,9 +30,10 @@ const resolvers = {
         },
         environment: async (parent, args) => {
             // Use the parameter to find the matching class in the collection
+            const enviroName = args.name
             return await Environment.findById(args.id).populate({
-                path: 'Character',
-                match: { isNPC: { $ne: false } },
+                path: 'npcs',
+                match: { environment: { $eq: enviroName } },
             })
         },
     },
@@ -89,8 +97,14 @@ const resolvers = {
 
             return { token, user };
         },
+        appendUsertoSave: async (parent, { email, SaveId }) => {
+            return await User.findOneAndUpdate(
+                { email },
+                { $addToSet: { savedata: SaveId } },
+                { new: true }
+            );
+        },
         addSaveSmall: async (parent, { name, worldId }) => {
-            console.log(worldId);
             let currentSave = await SaveData.create({ name });
             return await SaveData.findOneAndUpdate(
                 { _id: currentSave._id },

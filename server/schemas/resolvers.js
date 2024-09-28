@@ -30,11 +30,7 @@ const resolvers = {
         },
         environment: async (parent, args) => {
             // Use the parameter to find the matching class in the collection
-            const enviroName = args.name
-            return await Environment.findById(args.id).populate({
-                path: 'npcs',
-                match: { environment: { $eq: enviroName } },
-            })
+            return await Environment.findById(args.id);
         },
     },
     Mutation: {

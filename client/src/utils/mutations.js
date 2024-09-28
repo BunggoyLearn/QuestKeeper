@@ -48,7 +48,17 @@ mutation AddEnvironmentSmall($name: String!, $terrain: String!, $weather: String
 `;
 
 export const ADD_WORLD = gql`
-
+mutation AddWorldSmall($environmentId: ID!, $heroesId: ID!) {
+  addWorldSmall(environmentId: $environmentId, heroesId: $heroesId) {
+    _id
+    environments {
+      _id
+    }
+    heroes {
+      _id
+    }
+  }
+}
 `;
 
 export const ADD_SAVEDATA = gql`

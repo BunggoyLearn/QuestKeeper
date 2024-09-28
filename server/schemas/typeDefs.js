@@ -73,23 +73,34 @@ const typeDefs = `
     world: [World]
   }
 
+  type User {
+    _id: ID
+    username: String
+    email: String
+    password: String
+    savedata: [SaveData]!
+  }
+
   type Query {
     characters: [Character]
     environments: [Environment]
     world: [World]
     saveData: [SaveData]
+    users: [User]
     saveDataSingle(id: ID!) : SaveData
+    user(username: String!): User
     character(id: ID!) : Character
     environment(id: ID!) : Environment
   }
 
   type Mutation {
+    addUser(username: String!, email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
     addSave(input: SaveDataInput! ) : SaveData
     addSaveSmall(name: String!, worldId: ID!) : SaveData
     addWorldSmall(environmentId: ID!, heroesId: ID!) : World
     addEnvironmentSmall(name: String!, terrain: String!, weather: String!, environmentFactor: String, town: [TownInput], quests: [String], npcs: [CharacterInput] ) : Environment
     addCharacter(name: String!, healthPoints: Int!, maxHealthPoints: Int!, manaPoints: Int!, maxManaPoints: Int!, goldPieces: Int!, isNPC: Boolean!, environment: String!, npcAmount: Int, status: [StatusInput], alive: Boolean, holding: [HoldingInput], quirks: [String]) : Character
-    #addCharacter( name: String!, healthPoints: Int!, maxHealthPoints: Int!, manaPoints: Int!, maxManaPoints: Int!, goldPieces: Int!, isNPC: Boolean!, environment: String!, npcAmount: Int, status: [StatusInput], alive: Boolean, holding: [HoldingInput], quirks: [String]) : Character
   }
 
 #inputs
